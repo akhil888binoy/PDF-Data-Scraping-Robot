@@ -33,6 +33,7 @@
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -84,13 +85,13 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main " sap:VirtualizedContainerService.HintSize="592,1296" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main " sap:VirtualizedContainerService.HintSize="592,1294" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="E:\RPA_workspace\Robot5_PDFDataScraping\Input" sap:VirtualizedContainerService.HintSize="530,1185" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="LastUpdatedDateOldFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="E:\RPA_workspace\Robot5_PDFDataScraping\Input" sap:VirtualizedContainerService.HintSize="530,1183" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="LastUpdatedDateOldFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -99,26 +100,26 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,935" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,933" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log File Being Processed" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing:&quot;+CurrentFile.Name]" />
-            <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Always" DisplayName="Attach To Invoice Using  Adobe Acrobat (64-bit)" sap:VirtualizedContainerService.HintSize="434,585" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Background" OpenMode="Always" ScopeGuid="f231bdb2-de6a-4161-b341-1f3de24f06f3" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Always" DisplayName="Use Application: Invoice 1.pdf - Adobe Acrobat Reader (64-bit)" sap:VirtualizedContainerService.HintSize="434,583" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Background" OpenMode="Always" ScopeGuid="f231bdb2-de6a-4161-b341-1f3de24f06f3" Version="V2" WindowResize="Maximize">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,294" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,292" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Zoom Out to View Entire PDF" sap:VirtualizedContainerService.HintSize="338,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="WindowMessages" Shortcuts="[d(hk)][d(ctrl)]0[u(ctrl)][u(hk)]" Version="V3">
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Zoom Out to View Entire PDF" sap:VirtualizedContainerService.HintSize="338,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="WindowMessages" ScopeIdentifier="f231bdb2-de6a-4161-b341-1f3de24f06f3" Shortcuts="[d(hk)][d(ctrl)]0[u(ctrl)][u(hk)]" Version="V3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -130,7 +131,7 @@
                 </ActivityAction>
               </uix:NApplicationCard.Body>
               <uix:NApplicationCard.TargetApp>
-                <uix:TargetApp Area="-8, -8, 1382, 736" Arguments="[CurrentFile.FullName]" FilePath="C:\Program Files\Adobe\Acrobat DC\Acrobat\acrobat.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJPSURBVFhH1ZY9aBRBFMevUVCUKIliOPHjEPzIkTRiOAWxSBobLawU7MQ2aBdFBBHkIHiFVjYhcGijyNkIKS5dIHCQSs6rQgq90mZvd7Z5vv9bNu7ODHGyN5xY/Jh9b96895+Zt8uWiOifYjjisdIRZo2hIdhiFvTcNgwHL1yLz45vD1a/UhAEe+fnD4oWH/2KJ/YFkos3pNfIYjh4AYUfP9iT74HBxjrFE/sHnG9zNxGGAwJsCYvgIsJw+BQA/iYiZwBXAdHrV0nDTR6k4HvXGpOSiJCeeK7XyxnAVYCaqVD4fkVERIuPrTFZwjdL2xy7pdfLGcBVQDx1SkZ15RKp+3eMeQN+O5Bbr5czgPMJzNcobNQlKU7CFqPjVUD47i3FJw6QOnfcOm/DqwA0HmJdmjDFqwA0nrp7m9TVaVK35qwxOl4FqDPjcvdhe5Xi8iFS5yelMePyYSmk5rhHvnzKrfEiIHr5TJLL/d+8TqpyLCl48eSfq+BRTma6kls7lAB8eNTpo0nR2SlS12bkGvAm4BSihYeJKBRm0BvqxuVcjsIC5K65MHYWvXiadL6t8TCP3nhwTwTr84UFwBc94cT8wcEzXkE9xoXCAnAC8GPntp25UliAL/5/AdVqVajX6zt2rVajVqtlzNnwIqDf78uY2r1eT0Skvt3wIgAFswLSMQWnkV2TxYsA7LbZbO7YnU5ntCeg2yjebrdHI2BYnAXgJ9KWYBjkx9RRwGd1odwddL9ZExUBuZCTcy/r9XJGCgc2oNYzDVstwzFqrM7RQaXfNljUiwb3UnIAAAAASUVORK5CYII=" InformativeScreenshot="90b6472acb663b6ff7778c55b3e7b216.png" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' title='*Adobe*' /&gt;" />
+                <uix:TargetApp Area="-8, -8, 1382, 736" Arguments="[CurrentFile.FullName]" FilePath="C:\Program Files\Adobe\Acrobat DC\Acrobat\acrobat.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJPSURBVFhH1ZY9aBRBFMevUVCUKIliOPHjEPzIkTRiOAWxSBobLawU7MQ2aBdFBBHkIHiFVjYhcGijyNkIKS5dIHCQSs6rQgq90mZvd7Z5vv9bNu7ODHGyN5xY/Jh9b96895+Zt8uWiOifYjjisdIRZo2hIdhiFvTcNgwHL1yLz45vD1a/UhAEe+fnD4oWH/2KJ/YFkos3pNfIYjh4AYUfP9iT74HBxjrFE/sHnG9zNxGGAwJsCYvgIsJw+BQA/iYiZwBXAdHrV0nDTR6k4HvXGpOSiJCeeK7XyxnAVYCaqVD4fkVERIuPrTFZwjdL2xy7pdfLGcBVQDx1SkZ15RKp+3eMeQN+O5Bbr5czgPMJzNcobNQlKU7CFqPjVUD47i3FJw6QOnfcOm/DqwA0HmJdmjDFqwA0nrp7m9TVaVK35qwxOl4FqDPjcvdhe5Xi8iFS5yelMePyYSmk5rhHvnzKrfEiIHr5TJLL/d+8TqpyLCl48eSfq+BRTma6kls7lAB8eNTpo0nR2SlS12bkGvAm4BSihYeJKBRm0BvqxuVcjsIC5K65MHYWvXiadL6t8TCP3nhwTwTr84UFwBc94cT8wcEzXkE9xoXCAnAC8GPntp25UliAL/5/AdVqVajX6zt2rVajVqtlzNnwIqDf78uY2r1eT0Skvt3wIgAFswLSMQWnkV2TxYsA7LbZbO7YnU5ntCeg2yjebrdHI2BYnAXgJ9KWYBjkx9RRwGd1odwddL9ZExUBuZCTcy/r9XJGCgc2oNYzDVstwzFqrM7RQaXfNljUiwb3UnIAAAAASUVORK5CYII=" InformativeScreenshot="f46e157239e39ef761c691247cc705e9.png" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' title='*Adobe*' /&gt;" />
               </uix:NApplicationCard.TargetApp>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
