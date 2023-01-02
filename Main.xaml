@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="514,786" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="514,786" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="66">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -34,10 +34,11 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
-    </sco:Collection>
+      <x:String>System.Reflection</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="49">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -83,15 +84,18 @@
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main " sap:VirtualizedContainerService.HintSize="592,1294" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main " sap:VirtualizedContainerService.HintSize="592,1493" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="E:\RPA_workspace\Robot5_PDFDataScraping\Input" sap:VirtualizedContainerService.HintSize="530,1183" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="LastUpdatedDateOldFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="E:\RPA_workspace\Robot5_PDFDataScraping\Input" sap:VirtualizedContainerService.HintSize="530,1382" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="LastUpdatedDateOldFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -100,20 +104,23 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,933" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1132" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log File Being Processed" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing:&quot;+CurrentFile.Name]" />
-            <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Always" DisplayName="Use Application: Invoice 1.pdf - Adobe Acrobat Reader (64-bit)" sap:VirtualizedContainerService.HintSize="434,583" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Background" OpenMode="Always" ScopeGuid="f231bdb2-de6a-4161-b341-1f3de24f06f3" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Always" DisplayName="Use Adobe Acrobat To Read Invoice (64-bit)" sap:VirtualizedContainerService.HintSize="434,782" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Background" OpenMode="Always" ScopeGuid="f231bdb2-de6a-4161-b341-1f3de24f06f3" Version="V2" WindowResize="Maximize">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,292" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,491" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Int32" Name="InvoiceNumber" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -127,6 +134,17 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NKeyboardShortcuts>
+                    <uix:NGetText DisplayName="Get Invoice Number" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="f231bdb2-de6a-4161-b341-1f3de24f06f3" TextString="[InvoiceNumber]" Version="V3">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="670, 249, 19, 8" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'19070'" FullSelectorArgument="&lt;uia cls='AVL_AVView' idx='4' /&gt;&lt;uia cls='AVL_AVView' idx='11' /&gt;&lt;uia role='table' /&gt;&lt;uia idx='9' role='edit' /&gt;" FuzzySelectorArgument="&lt;uia cls='AVL_AVView' /&gt;&lt;uia cls='AVL_AVView' /&gt;&lt;uia role='table' /&gt;&lt;uia automationid='' role='edit' /&gt;" Guid="baa7b769-f799-44f2-8541-10042a51b331" InformativeScreenshot="869ec3cfc78d849a581fba33bae87605.png" ScopeSelectorArgument="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' title='Invoice 1.pdf - Adobe Acrobat Reader (64-bit)' /&gt;" SearchSteps="FuzzySelector" SelectionStrategy="UIA" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target DesignTimeRectangle="668, 237, 64, 11" ElementType="InputBox" FriendlyName="'Invoice Number'" FullSelectorArgument="&lt;uia cls='AVL_AVView' idx='4' /&gt;&lt;uia cls='AVL_AVView' idx='11' /&gt;&lt;uia role='table' /&gt;&lt;uia idx='7' role='edit' /&gt;" FuzzySelectorArgument="&lt;uia cls='AVL_AVView' /&gt;&lt;uia cls='AVL_AVView' /&gt;&lt;uia role='table' /&gt;&lt;uia automationid='' role='edit' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAALCAYAAADP9otxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJFSURBVEhL7ZS/axsxFMfv39Cs1Zunbpr8H2TpoMGLh2yFHNwQCNRgqMBTIdNBxoDR1CUc3NYfmB5ZijEHJZTDXIaQlHCUYIz59j1J5yZpWkJbsrgPxOnH03tfffROEbbc/iGAFWo7QCQNilWYehKrYLVEFCmYoglzj7cAoA0SPeEBGhRGUU4BlWSo1+34Dw5SW+i/A0C2CXIehBAM1wS6m/4Ax3YIyX7TOfKk5+eFxvitxUhyP0F+Vd1auzsW+gjzZu1zrgqYnoISHej0ExrSMDBvcBJ3yVdhaGLKRTF2NDTHdhq4KWjtNYq+xWLB2tu1Dvr2C1Z1hkQJN9bpO+TuTBJKdSHiHNdewUMAiKLrS2g78zDkPtLDHURqjOncIhm/xyJPIGhcNN9QprSmLarCQMoRshNaE7uwiwuUxWd85XkGUWWIRRdxfuFzMoDBBOX8CJog9M0BtYLEt1pqn18f4yP/XnQBtvoAI1lb6fNyxVatP+XjuZ5BOlJ00AwV6+Tcl1PaxxdX4vS0RriCxwKgJJc5iSfC7mA3uG4DX98DIPYwmewFAEsKvPa+mxviuJXP6QBY1Fiizg+gaF1uADCos98AOCOZ4c35CcA+zAuuojZnu+8W/GAPvAExzJDLpd3MrSX+HMpM6e8la+awcShzlcDOMkrg/WX8Goe64/qu5M9nd31LLsDwaG6ALLGwu+gwgIZuy5WvL1mv4VeN9r96SQDC2MW/QlNaxC4GvTFxijR+5tfvvXE/KmBL7T+A8N1a23IAwHfzx0aJH/IBxAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                    </uix:NGetText>
                   </Sequence>
                 </ActivityAction>
               </uix:NApplicationCard.Body>
